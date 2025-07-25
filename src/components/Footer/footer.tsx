@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
-import routes from "@/utils/imagens";
+import Image from "next/image";
+import routes from "@/utils/imagens"; // Certifique-se que routes.logo é caminho válido
 import {
   FaFacebookF,
   FaInstagram,
@@ -17,44 +19,57 @@ export default function Footer() {
   const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   useEffect(() => {
-    function handleScroll() {
+    const handleScroll = () => {
       setShowScrollBtn(window.scrollY > 200);
-    }
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  function scrollToTop() {
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }
+  };
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo">
       <div className="footer-main container">
         {/* Logo */}
-        <div className="footer-logo">
-          <img src={routes.logo} alt="Visacont Logo" className="logo-img" />
+        <div className="footer-logo" aria-label="Logo Visacont">
+          <Image
+            src={routes.logo} // Ex: "/logo.png"
+            alt="Visacont Logo"
+            width={150}
+            height={60}
+            priority
+            style={{ objectFit: "contain", borderRadius: "6px", cursor: "pointer" }}
+          />
         </div>
 
         {/* Menus */}
-        <nav className="footer-menus">
+        <nav className="footer-menus" aria-label="Menu de navegação do rodapé">
           <ul className="footer-menu">
-            <li><a href="#"><FaHome /> Início</a></li>
-            <li><a href="#"><FaInfoCircle /> Sobre</a></li>
-            <li><a href="#"><FaBriefcase /> Serviços</a></li>
+            <li><a href="#"><FaHome aria-hidden="true" /> Início</a></li>
+            <li><a href="#"><FaInfoCircle aria-hidden="true" /> Sobre</a></li>
+            <li><a href="#"><FaBriefcase aria-hidden="true" /> Serviços</a></li>
           </ul>
           <ul className="footer-menu">
-            <li><a href="#"><FaUsers /> Equipe</a></li>
-            <li><a href="#"><FaEnvelope /> Contato</a></li>
-            <li><a href="#"><FaShieldAlt /> Políticas</a></li>
+            <li><a href="#"><FaUsers aria-hidden="true" /> Equipe</a></li>
+            <li><a href="#"><FaEnvelope aria-hidden="true" /> Contato</a></li>
+            <li><a href="#"><FaShieldAlt aria-hidden="true" /> Políticas</a></li>
           </ul>
         </nav>
 
         {/* Ícones sociais */}
-        <div className="footer-social">
-          <a href="#" className="social-icon" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-          <a href="#" className="social-icon" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-          <a href="#" className="social-icon" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
+        <div className="footer-social" aria-label="Redes sociais">
+          <a href="#" className="social-icon" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">
+            <FaFacebookF />
+          </a>
+          <a href="#" className="social-icon" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
+          </a>
+          <a href="#" className="social-icon" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <FaLinkedinIn />
+          </a>
         </div>
       </div>
 
@@ -70,6 +85,7 @@ export default function Footer() {
           aria-label="Voltar ao topo"
           title="Voltar ao topo"
           className="scrollTopBtn"
+          type="button"
         >
           ↑
         </button>
@@ -102,18 +118,6 @@ export default function Footer() {
           display: flex;
           align-items: center;
           justify-content: center;
-        }
-        .logo-img {
-          max-height: 60px;
-          width: auto;
-          border-radius: 6px;
-          filter: brightness(0) invert(1);
-          cursor: pointer;
-          transition: filter 0.3s ease;
-          object-fit: contain;
-        }
-        .logo-img:hover {
-          filter: brightness(0) invert(0.7);
         }
 
         /* Menus */
