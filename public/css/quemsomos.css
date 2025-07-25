@@ -1,0 +1,152 @@
+.quem-somos-container {
+  padding: 4rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.quem-somos-topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.quem-somos-topo img {
+  max-width: 360px;
+  width: 100%;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.quem-somos-topo img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.quem-somos-texto {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  font-family: "Inter", sans-serif;
+}
+
+.quem-somos-texto h2 {
+  font-size: 2.5rem;
+  color: #0a58ca;
+  margin-bottom: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(10, 88, 202, 0.3);
+}
+
+.quem-somos-texto p {
+  font-size: 1.15rem;
+  color: #3c4043;
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+}
+
+.quem-somos-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quem-somos-list li {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #212529;
+  display: flex;
+  align-items: center;
+  background: #e6f0ff;
+  padding: 0.85rem 1.3rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0, 88, 202, 0.1);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.quem-somos-list li:hover {
+  background: #c5dbff;
+  box-shadow: 0 6px 20px rgba(10, 88, 202, 0.2);
+}
+
+.quem-somos-list li::before {
+  content: "✔";
+  color: #0a58ca;
+  font-size: 1.35rem;
+  margin-right: 1rem;
+}
+
+/* Cards do “Quem Somos” */
+.quem-somos-cards .card {
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.quem-somos-cards .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(10, 88, 202, 0.25);
+}
+
+.card-img-custom {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 180px;
+  object-fit: cover;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+
+.card-img-custom:hover {
+  filter: brightness(1);
+}
+
+.card-title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #5a5f63;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .quem-somos-container {
+    padding: 2.5rem 1rem;
+  }
+
+  .quem-somos-topo {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .quem-somos-topo img {
+    margin-bottom: 1.5rem;
+    max-width: 280px;
+  }
+
+  .quem-somos-texto h2 {
+    font-size: 2rem;
+  }
+
+  .quem-somos-list li {
+    font-size: 1.1rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .card-img-custom {
+    height: 140px;
+  }
+}
