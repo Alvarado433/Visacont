@@ -5,8 +5,7 @@ import Footer from "@/components/Footer/footer";
 import ImpostoRenda from "@/components/imposto/imposto";
 import Navbar from "@/components/menu/navbar";
 import ServicesSection from "@/components/servico/servico";
-import WhatsappFloatButton from "@/components/whatapp/whatsapp";
-import Image from "next/image";
+
 
 export default function Home() {
   return (
